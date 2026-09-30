@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tee Jae Calinao - Web Developer">
+  <meta property="og:url" content="https://www.linkedin.com/in/tee-jae-calinao-4109b119b/">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/C5603AQEgNFFmcVoTYA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1595158349435?e=1792627200&v=beta&t=KO1pJ949fnzx5WP1k8UiCvNYJy58-zk-7N7mG9_osxM">
+  <title>Developer Portfolio Template</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',      /* Vibrant Crimson Red */
+              redHover: '#B91C1C', /* Deep Red */
+              redGlow: 'rgba(220, 38, 38, 0.15)',
+              dark: '#0A0A0A',     /* Pitch / Onyx Black */
+              card: '#141414',     /* Subtle elevated black */
+              border: '#262626',   /* Slate/Charcoal Border */
+              muted: '#737373',    /* Neutral 500 */
+              light: '#FAFAFA'     /* Crisp off-white */
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar and subtle glowing utilities */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #DC2626;
+    }
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased selection:bg-brand-red selection:text-white">
+
+  <!-- ========================================== -->
+  <!-- SECTION: NAVIGATION                        -->
+  <!-- ========================================== -->
+  <!-- EDIT: NAVIGATION_HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/85 backdrop-blur-md border-b border-brand-border transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Monogram -->
+      <!-- EDIT: LOGO -->
+      <a href="#hero" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-lg bg-brand-red flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-brand-red/20 group-hover:scale-105 transition-transform">
+          &lt;/&gt;
+        </div>
+        <span class="font-mono text-lg font-bold tracking-tight text-white group-hover:text-brand-red transition-colors">
+          [DEV<span class="text-brand-red">.PORTFOLIO</span>]
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <!-- EDIT: NAV_LINKS -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="#hero" class="text-neutral-400 hover:text-white transition-colors">Home</a>
+        <a href="#projects" class="text-neutral-400 hover:text-white transition-colors">Projects</a>
+        <a href="#skills" class="text-neutral-400 hover:text-white transition-colors">Tools &amp; Skills</a>
+        <a href="#contact" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <!-- EDIT: NAV_CTA -->
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold text-white bg-brand-red hover:bg-brand-redHover transition-colors shadow-sm shadow-brand-red/30">
+          Get in Touch
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-brand-card border border-brand-border">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-brand-border bg-brand-dark px-4 pt-2 pb-6 space-y-3">
+      <a href="#hero" class="block py-2 text-base font-medium text-neutral-300 hover:text-brand-red">Home</a>
+      <a href="#projects" class="block py-2 text-base font-medium text-neutral-300 hover:text-brand-red">Projects</a>
+      <a href="#skills" class="block py-2 text-base font-medium text-neutral-300 hover:text-brand-red">Tools &amp; Skills</a>
+      <a href="#contact" class="block py-2 text-base font-medium text-neutral-300 hover:text-brand-red">Contact</a>
+      <a href="#contact" class="block w-full text-center mt-2 px-4 py-2 rounded-md text-sm font-semibold text-white bg-brand-red">Get In Touch</a>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- SECTION: LANDING / HERO                    -->
+  <!-- ========================================== -->
+  <!-- EDIT: HERO_SECTION -->
+  <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden grid-pattern border-b border-brand-border">
+    <!-- Ambient Red Gradient Accent -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-brand-red/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left: Intro & Details -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Availability Badge -->
+          <!-- EDIT: STATUS_BADGE -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-brand-red/30 bg-brand-red/10 text-brand-red text-xs font-mono font-medium tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+            Available for new opportunities
+          </div>
+
+          <!-- Developer Name & Headline -->
+          <div class="space-y-2">
+            <!-- EDIT: DEVELOPER_NAME -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Hello, I'm <br class="hidden sm:inline"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">[Developer Name]</span>
+            </h1>
+            
+            <!-- EDIT: JOB_TITLE -->
+            <p class="font-mono text-lg sm:text-xl font-semibold text-brand-red">
+              &gt; [Your Professional Job Title / Specialization]
+            </p>
+          </div>
+
+          <!-- Short Introduction Placeholder -->
+          <!-- EDIT: SHORT_INTRODUCTION -->
+          <p class="text-neutral-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            [Add your brief 2-3 sentence introduction here. Describe your primary engineering strengths, core architecture focus, and the kind of high-impact digital experiences or software solutions you build.]
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <!-- EDIT: CALL_TO_ACTION_BUTTONS -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-brand-red hover:bg-brand-redHover transition-all shadow-md shadow-brand-red/30">
+              <span>View Projects</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-neutral-200 hover:text-white bg-brand-card hover:bg-neutral-900 border border-brand-border transition-colors">
+              <i data-lucide="mail" class="w-4 h-4 text-brand-red"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats / Highlights -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-brand-border max-w-md mx-auto lg:mx-0">
+            <div>
+              <div class="font-mono text-2xl font-bold text-white">5+</div>
+              <div class="text-xs text-neutral-500 uppercase tracking-wider font-mono">Years Exp.</div>
+            </div>
+            <div>
+              <div class="font-mono text-2xl font-bold text-white">20+</div>
+              <div class="text-xs text-neutral-500 uppercase tracking-wider font-mono">Projects Done</div>
+            </div>
+            <div>
+              <div class="font-mono text-2xl font-bold text-white">99.9%</div>
+              <div class="text-xs text-neutral-500 uppercase tracking-wider font-mono">Clean Code</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Developer Image Placeholder -->
+        <!-- EDIT: DEVELOPER_IMAGE -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl bg-brand-card border-2 border-dashed border-neutral-700 hover:border-brand-red transition-all p-3 group">
+            
+            <!-- Corner Accents -->
+            <div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-brand-red"></div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-brand-red"></div>
+            <div class="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-brand-red"></div>
+            <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-brand-red"></div>
+
+            <div class="w-full h-full rounded-xl bg-neutral-900/80 flex flex-col items-center justify-center text-center p-6 space-y-3">
+              <div class="w-16 h-16 rounded-full bg-brand-border flex items-center justify-center text-neutral-400 group-hover:text-brand-red group-hover:scale-110 transition-all">
+                <i data-lucide="user" class="w-8 h-8"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="text-sm font-semibold text-white">[Developer Photo Placeholder]</div>
+                <p class="text-xs text-neutral-500 font-mono">Recommended: 600x700px Portrait (PNG/JPG)</p>
+              </div>
+              <span class="inline-block px-3 py-1 bg-black/60 rounded text-[11px] font-mono text-neutral-400 border border-neutral-800">
+                &lt;!-- Replace with &lt;img&gt; --&gt;
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION: PROJECTS                          -->
+  <!-- ========================================== -->
+  <!-- EDIT: PROJECTS_SECTION -->
+  <section id="projects" class="py-24 border-b border-brand-border bg-[#0C0C0C]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-red font-semibold">[Portfolio Showcase]</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Featured Projects</h2>
+        </div>
+        <p class="text-neutral-400 text-sm max-w-md">
+          A showcase of recent work, applications, and architectures. Easily replace these reusable cards with your own projects.
+        </p>
+      </div>
+
+      <!-- Project Cards Grid (Reusable Card Pattern) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- ============================== -->
+        <!-- REUSABLE PROJECT CARD #1       -->
+        <!-- ============================== -->
+        <!-- EDIT: PROJECT_CARD_1 -->
+        <article class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/60 transition-all duration-300 flex flex-col overflow-hidden group shadow-lg">
+          <!-- EDIT: PROJECT_IMAGE_1 -->
+          <div class="h-48 w-full bg-neutral-900 border-b border-brand-border border-dashed flex flex-col items-center justify-center p-4 text-center group-hover:bg-neutral-800/60 transition-colors">
+            <i data-lucide="image" class="w-8 h-8 text-neutral-500 mb-2 group-hover:text-brand-red transition-colors"></i>
+            <span class="text-xs font-mono text-neutral-400 font-medium">[Project Image Placeholder 1]</span>
+            <span class="text-[11px] text-neutral-600 font-mono mt-1">Aspect ratio ~16:9</span>
+          </div>
+
+          <!-- Project Card Content -->
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <!-- Tech tags placeholder -->
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">React</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">TypeScript</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-brand-red/10 text-brand-red border border-brand-red/20">Tailwind</span>
+              </div>
+              
+              <!-- EDIT: PROJECT_TITLE_1 -->
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-red transition-colors">
+                [Project Title One]
+              </h3>
+              
+              <!-- EDIT: PROJECT_DESCRIPTION_1 -->
+              <p class="mt-2.5 text-sm text-neutral-400 line-clamp-3">
+                [Add a 2-3 sentence overview of this project. Describe the problem solved, architecture chosen, and main technical highlights.]
+              </p>
+            </div>
+
+            <!-- EDIT: PROJECT_LINK_1 -->
+            <div class="pt-6 mt-6 border-t border-brand-border flex items-center justify-between">
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white hover:text-brand-red transition-colors">
+                <span>View Live Demo</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="#" class="text-xs font-mono text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>Source</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============================== -->
+        <!-- REUSABLE PROJECT CARD #2       -->
+        <!-- ============================== -->
+        <!-- EDIT: PROJECT_CARD_2 -->
+        <article class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/60 transition-all duration-300 flex flex-col overflow-hidden group shadow-lg">
+          <!-- EDIT: PROJECT_IMAGE_2 -->
+          <div class="h-48 w-full bg-neutral-900 border-b border-brand-border border-dashed flex flex-col items-center justify-center p-4 text-center group-hover:bg-neutral-800/60 transition-colors">
+            <i data-lucide="image" class="w-8 h-8 text-neutral-500 mb-2 group-hover:text-brand-red transition-colors"></i>
+            <span class="text-xs font-mono text-neutral-400 font-medium">[Project Image Placeholder 2]</span>
+            <span class="text-[11px] text-neutral-600 font-mono mt-1">Aspect ratio ~16:9</span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">Node.js</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">PostgreSQL</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-brand-red/10 text-brand-red border border-brand-red/20">Docker</span>
+              </div>
+              
+              <!-- EDIT: PROJECT_TITLE_2 -->
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-red transition-colors">
+                [Project Title Two]
+              </h3>
+              
+              <!-- EDIT: PROJECT_DESCRIPTION_2 -->
+              <p class="mt-2.5 text-sm text-neutral-400 line-clamp-3">
+                [Brief summary highlighting the backend service, data pipeline, microservices, or full-stack web application features and impact.]
+              </p>
+            </div>
+
+            <!-- EDIT: PROJECT_LINK_2 -->
+            <div class="pt-6 mt-6 border-t border-brand-border flex items-center justify-between">
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white hover:text-brand-red transition-colors">
+                <span>View Live Demo</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="#" class="text-xs font-mono text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>Source</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============================== -->
+        <!-- REUSABLE PROJECT CARD #3       -->
+        <!-- ============================== -->
+        <!-- EDIT: PROJECT_CARD_3 -->
+        <article class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/60 transition-all duration-300 flex flex-col overflow-hidden group shadow-lg">
+          <!-- EDIT: PROJECT_IMAGE_3 -->
+          <div class="h-48 w-full bg-neutral-900 border-b border-brand-border border-dashed flex flex-col items-center justify-center p-4 text-center group-hover:bg-neutral-800/60 transition-colors">
+            <i data-lucide="image" class="w-8 h-8 text-neutral-500 mb-2 group-hover:text-brand-red transition-colors"></i>
+            <span class="text-xs font-mono text-neutral-400 font-medium">[Project Image Placeholder 3]</span>
+            <span class="text-[11px] text-neutral-600 font-mono mt-1">Aspect ratio ~16:9</span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">Next.js</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-900 text-neutral-300 border border-neutral-800">GraphQL</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-brand-red/10 text-brand-red border border-brand-red/20">AWS</span>
+              </div>
+              
+              <!-- EDIT: PROJECT_TITLE_3 -->
+              <h3 class="text-xl font-bold text-white group-hover:text-brand-red transition-colors">
+                [Project Title Three]
+              </h3>
+              
+              <!-- EDIT: PROJECT_DESCRIPTION_3 -->
+              <p class="mt-2.5 text-sm text-neutral-400 line-clamp-3">
+                [Insert description of your cloud architecture, API design, or modern SaaS solution. Mention key metrics such as latency or scalability.]
+              </p>
+            </div>
+
+            <!-- EDIT: PROJECT_LINK_3 -->
+            <div class="pt-6 mt-6 border-t border-brand-border flex items-center justify-between">
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white hover:text-brand-red transition-colors">
+                <span>View Live Demo</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="#" class="text-xs font-mono text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>Source</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION: TOOLS & SKILLS                    -->
+  <!-- ========================================== -->
+  <!-- EDIT: TOOLS_SKILLS_SECTION -->
+  <section id="skills" class="py-24 border-b border-brand-border bg-brand-dark">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="font-mono text-xs uppercase tracking-widest text-brand-red font-semibold">[Core Competencies]</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Tools &amp; Skills</h2>
+        <p class="text-neutral-400 text-sm mt-3">
+          Categorized tech stack cards. You can easily insert SVG icons, PNG logos, or simple text for your languages and tools.
+        </p>
+      </div>
+
+      <!-- Skill Cards Grid (Reusable Card Pattern) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- ============================== -->
+        <!-- REUSABLE SKILL CARD #1         -->
+        <!-- ============================== -->
+        <!-- EDIT: SKILL_CARD_1 -->
+        <div class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/50 p-6 transition-all group flex flex-col justify-between">
+          <div>
+            <!-- Icon / Logo Container -->
+            <!-- EDIT: SKILL_ICON_1 -->
+            <div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red group-hover:scale-105 group-hover:border-brand-red/40 transition-all mb-4">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <!-- EDIT: SKILL_TITLE_1 -->
+            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors">[Skill Category 1]</h3>
+            <!-- EDIT: SKILL_LEVEL_1 -->
+            <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block mt-1">Frontend Engineering</span>
+            <!-- EDIT: SKILL_ITEMS_1 -->
+            <ul class="mt-4 space-y-2 text-sm text-neutral-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[HTML5 / Semantic Web]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[CSS3 / Tailwind / SASS]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[JavaScript / TypeScript]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[React / Next.js / Vue]</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-neutral-800 text-[11px] font-mono text-neutral-500">
+            &lt;!-- EDIT: SKILL_CARD_1 --&gt;
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- REUSABLE SKILL CARD #2         -->
+        <!-- ============================== -->
+        <!-- EDIT: SKILL_CARD_2 -->
+        <div class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/50 p-6 transition-all group flex flex-col justify-between">
+          <div>
+            <!-- EDIT: SKILL_ICON_2 -->
+            <div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red group-hover:scale-105 group-hover:border-brand-red/40 transition-all mb-4">
+              <i data-lucide="server" class="w-6 h-6"></i>
+            </div>
+            <!-- EDIT: SKILL_TITLE_2 -->
+            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors">[Skill Category 2]</h3>
+            <!-- EDIT: SKILL_LEVEL_2 -->
+            <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block mt-1">Backend &amp; APIs</span>
+            <!-- EDIT: SKILL_ITEMS_2 -->
+            <ul class="mt-4 space-y-2 text-sm text-neutral-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Node.js / Express]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Python / FastAPI / Django]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[PostgreSQL / MySQL]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[REST &amp; GraphQL APIs]</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-neutral-800 text-[11px] font-mono text-neutral-500">
+            &lt;!-- EDIT: SKILL_CARD_2 --&gt;
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- REUSABLE SKILL CARD #3         -->
+        <!-- ============================== -->
+        <!-- EDIT: SKILL_CARD_3 -->
+        <div class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/50 p-6 transition-all group flex flex-col justify-between">
+          <div>
+            <!-- EDIT: SKILL_ICON_3 -->
+            <div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red group-hover:scale-105 group-hover:border-brand-red/40 transition-all mb-4">
+              <i data-lucide="terminal" class="w-6 h-6"></i>
+            </div>
+            <!-- EDIT: SKILL_TITLE_3 -->
+            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors">[Skill Category 3]</h3>
+            <!-- EDIT: SKILL_LEVEL_3 -->
+            <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block mt-1">DevOps &amp; Cloud</span>
+            <!-- EDIT: SKILL_ITEMS_3 -->
+            <ul class="mt-4 space-y-2 text-sm text-neutral-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Git / GitHub Actions]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Docker / Containers]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[AWS / GCP / Vercel]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[CI/CD Automation]</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-neutral-800 text-[11px] font-mono text-neutral-500">
+            &lt;!-- EDIT: SKILL_CARD_3 --&gt;
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- REUSABLE SKILL CARD #4         -->
+        <!-- ============================== -->
+        <!-- EDIT: SKILL_CARD_4 -->
+        <div class="bg-brand-card rounded-xl border border-brand-border hover:border-brand-red/50 p-6 transition-all group flex flex-col justify-between">
+          <div>
+            <!-- EDIT: SKILL_ICON_4 -->
+            <div class="w-12 h-12 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red group-hover:scale-105 group-hover:border-brand-red/40 transition-all mb-4">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <!-- EDIT: SKILL_TITLE_4 -->
+            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors">[Skill Category 4]</h3>
+            <!-- EDIT: SKILL_LEVEL_4 -->
+            <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block mt-1">Tools &amp; Workflows</span>
+            <!-- EDIT: SKILL_ITEMS_4 -->
+            <ul class="mt-4 space-y-2 text-sm text-neutral-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[VS Code / Neovim]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Figma / UI Design]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Postman / Insomnia]</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span>[Linux / Bash Scripting]</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-neutral-800 text-[11px] font-mono text-neutral-500">
+            &lt;!-- EDIT: SKILL_CARD_4 --&gt;
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION: CONTACT                           -->
+  <!-- ========================================== -->
+  <!-- EDIT: CONTACT_SECTION -->
+  <section id="contact" class="py-24 border-b border-brand-border bg-[#0C0C0C] relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Contact Left Column: Info & Socials -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-red font-semibold">[Let's Connect]</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Get In Touch</h2>
+          
+          <!-- EDIT: CONTACT_INTRO -->
+          <p class="text-neutral-400 text-sm leading-relaxed">
+            [Have a project in mind, an open role, or just want to discuss software development? Leave a message or reach out via direct channels.]
+          </p>
+
+          <div class="space-y-4 pt-4">
+            <!-- EDIT: CONTACT_EMAIL -->
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-border">
+              <div class="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block">Email Address</span>
+                <span class="text-sm font-semibold text-white">[developer@example.com]</span>
+              </div>
+            </div>
+
+            <!-- EDIT: CONTACT_LOCATION -->
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-border">
+              <div class="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-brand-red">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider block">Location</span>
+                <span class="text-sm font-semibold text-white">[City, Country / Remote Available]</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links Placeholder -->
+          <!-- EDIT: SOCIAL_LINKS -->
+          <div class="pt-2">
+            <span class="text-xs font-mono text-neutral-500 block mb-3 uppercase tracking-wider">Connect Online:</span>
+            <div class="flex items-center gap-3">
+              <a href="#" aria-label="GitHub" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-neutral-400 hover:text-white hover:border-brand-red transition-all">
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </a>
+              <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-neutral-400 hover:text-white hover:border-brand-red transition-all">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+              <a href="#" aria-label="Twitter / X" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-neutral-400 hover:text-white hover:border-brand-red transition-all">
+                <i data-lucide="twitter" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Right Column: Form Placeholder -->
+        <!-- EDIT: CONTACT_FORM -->
+        <div class="lg:col-span-7">
+          <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-border shadow-xl">
+            <h3 class="text-xl font-bold text-white mb-2">Send a Message</h3>
+            <p class="text-xs text-neutral-500 font-mono mb-6">&lt;!-- Replace action with your form endpoint (Formspree, Netlify Forms, etc.) --&gt;</p>
+
+            <form action="#" method="POST" onsubmit="event.preventDefault();" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- EDIT: FORM_NAME -->
+                <div>
+                  <label class="block text-xs font-mono text-neutral-300 uppercase tracking-wider mb-2">Your Name</label>
+                  <input type="text" placeholder="[e.g. Alex Morgan]" class="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-brand-border text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors text-sm">
+                </div>
+                <!-- EDIT: FORM_EMAIL -->
+                <div>
+                  <label class="block text-xs font-mono text-neutral-300 uppercase tracking-wider mb-2">Your Email</label>
+                  <input type="email" placeholder="[e.g. alex@example.com]" class="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-brand-border text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors text-sm">
+                </div>
+              </div>
+
+              <!-- EDIT: FORM_SUBJECT -->
+              <div>
+                <label class="block text-xs font-mono text-neutral-300 uppercase tracking-wider mb-2">Subject</label>
+                <input type="text" placeholder="[e.g. Project Inquiry / Collaboration]" class="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-brand-border text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors text-sm">
+              </div>
+
+              <!-- EDIT: FORM_MESSAGE -->
+              <div>
+                <label class="block text-xs font-mono text-neutral-300 uppercase tracking-wider mb-2">Message</label>
+                <textarea rows="4" placeholder="[Write your message here...]" class="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-brand-border text-white placeholder-neutral-600 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors text-sm resize-none"></textarea>
+              </div>
+
+              <!-- EDIT: FORM_SUBMIT_BUTTON -->
+              <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm font-semibold text-white bg-brand-red hover:bg-brand-redHover transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-red/30">
+                <span>Send Message</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECTION: FOOTER                            -->
+  <!-- ========================================== -->
+  <!-- EDIT: FOOTER_SECTION -->
+  <footer class="py-12 bg-black border-t border-brand-border text-neutral-500 text-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Left: Logo & Copyright -->
+        <div class="flex items-center gap-3">
+          <div class="w-7 h-7 rounded bg-brand-red flex items-center justify-center font-mono font-bold text-white text-xs">
+            &lt;/&gt;
+          </div>
+          <!-- EDIT: COPYRIGHT_TEXT -->
+          <span class="text-xs font-mono">
+            &copy; <span id="currentYear">2025</span> [Developer Name]. All rights reserved.
+          </span>
+        </div>
+
+        <!-- Center: Quick Scroll Back To Top -->
+        <div>
+          <a href="#hero" class="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-400 hover:text-brand-red transition-colors">
+            <span>Back to top</span>
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Right: Template attribution / tag -->
+        <!-- EDIT: FOOTER_NOTE -->
+        <div class="text-xs font-mono text-neutral-600">
+          Built with <span class="text-brand-red font-bold">Black, White &amp; Red</span> Theme
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons & Responsive Script -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close menu when clicking link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Auto set current year
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
